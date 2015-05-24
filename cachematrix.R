@@ -1,5 +1,3 @@
-## Put comments here that give an overall description of what your functions do
-
 ## The two funtions illustrated below allow the inverse of a matrix to be calculated, cached and then recalled at a latter
 ## time without having to recalculate the inverse again.
 
