@@ -1,8 +1,7 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Put comments here that give an overall description of what your functions do
 
 ## The two funtions illustrated below allow the inverse of a matrix to be calculated, cached and then recalled at a latter
-##time without having to recalculate the inverse again.
+## time without having to recalculate the inverse again.
 
 ## First function
 ## Take the passed matrix and create a list of functions to
@@ -39,23 +38,23 @@ makeCacheMatrix <- function(x = matrix()){
 ## If it does not exist the inverse is calculated and then returned.
 
 
-cachesolve <-function(x, ...){
-								## Return a matrix that is the inverse of 'x'
+cachesolve <-function(x, ...){                                  # Function to return a matrix that is the inverse of 'x'
+								
                 
-        inv <- x$getinv()					#set the variable 'inv' equal to the value of 'inv'
-								#in the x environment
+        inv <- x$getinv()					# set the variable 'inv' equal to the value of 'inv'
+								# in the x environment
         
-        if(!is.null(inv)){					#Check the value of 'inv' if previously defined
-                message("getting cached data")			#the print the messagge and return the variable,
-                return(inv)					#the cached inverse
+        if(!is.null(inv)){					# Check the value of 'inv' if previously defined
+                message("getting cached data")			# the print the messagge and return the variable,
+                return(inv)					# the cached inverse
         }
        
-        data <- x$get()						#If this 'x' has not been evaluated, assign it to the 
-								#local variable 'data'
+        data <- x$get()						# If this 'x' has not been evaluated, assign it to the 
+								# local variable 'data'
         
-        inv <- solve(data, ...)					#Calculate the value of the inverser for 'data"
+        inv <- solve(data, ...)					# Calculate the value of the inverser for 'data"
         
-        x$setinv(inv)						#Assign the inverse to the x environment
+        x$setinv(inv)						# Assign the inverse to the x environment
 
-        inv							#Print the value of the calculated mean
+        inv							# Print the value of the calculated mean
 }
