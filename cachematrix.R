@@ -34,3 +34,28 @@ makeCacheMatrix <- function(x = matrix()){
              setinv = setinv,					#into a list for calling
              getinv = getinv)
 }
+
+## This second function checks to see if the inverse of the matrix exists, if the inverse exists it is returned as a value. 
+## If it does not exist the inverse is calculated and then returned.
+
+
+cachesolve <-function(x, ...){
+								## Return a matrix that is the inverse of 'x'
+                
+        inv <- x$getinv()					#set the variable 'inv' equal to the value of 'inv'
+								#in the x environment
+        
+        if(!is.null(inv)){					#Check the value of 'inv' if previously defined
+                message("getting cached data")			#the print the messagge and return the variable,
+                return(inv)					#the cached inverse
+        }
+       
+        data <- x$get()						#If this 'x' has not been evaluated, assign it to the 
+								#local variable 'data'
+        
+        inv <- solve(data, ...)					#Calculate the value of the inverser for 'data"
+        
+        x$setinv(inv)						#Assign the inverse to the x environment
+
+        inv							#Print the value of the calculated mean
+}
